@@ -45,6 +45,7 @@ namespace StudentsWebapiTrial
             }
 
             app.UseRouting();
+            //app.UseMvcWithDefaultRoute();
 
             app.UseAuthorization();
 

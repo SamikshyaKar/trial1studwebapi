@@ -26,6 +26,7 @@ namespace StudentsWebapiTrial.Controllers
         }
 
         [HttpGet]
+      
         public ActionResult <IEnumerable<StudentDetails>> GetAllStudent()
         {
             var students = _istudentDetails.GetAllStudents();
@@ -43,14 +44,25 @@ namespace StudentsWebapiTrial.Controllers
         //    return Ok(_mapper.Map<StudentReadDTOS>(student));
         //}
 
-        [HttpGet("{id}", Name = "GetStudentbyID")]
-        public ActionResult<StudentDetails> GetStudentbyID(int SID)
+        //[HttpGet("{id}", Name = "GetStudentbyID")]
+        [HttpGet("{id}")]
+        [Route("api/StudentDetail/{id?}")]
+        [Route("api/[action]/{id?}")]
+        public ActionResult<StudentDetails> GetStudentbyID(int ? SID)
         {
-            StudentDetails student = _istudentDetails.GetStudentByID(SID);
+            StudentDetails student = _istudentDetails.GetStudentByID(SID??2);
             return Ok(student);
         }
 
-       
+
+        [HttpPost]
+       public ActionResult<StudentDetails> AddStudent(StudentDetails student)
+        {
+            StudentDetails studentDetails= _istudentDetails.AddStudent(student);
+            return Ok(studentDetails);
+
+
+        }
 
     }
 }

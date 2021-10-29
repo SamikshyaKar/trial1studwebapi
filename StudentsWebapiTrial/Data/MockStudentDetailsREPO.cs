@@ -8,6 +8,16 @@ namespace StudentsWebapiTrial.Data
 {
     public class MockStudentDetailsREPO : IStudentDetails
     {
+
+        private List<StudentDetails> StudentDetail;
+
+        public StudentDetails AddStudent(StudentDetails student)
+        {
+            student.StudID = StudentDetail.Max(stud => stud.StudID) + 1;
+            StudentDetail.Add(student);
+            return student;
+        }
+
         public void create(StudentDetails student)
         {
             throw new NotImplementedException();

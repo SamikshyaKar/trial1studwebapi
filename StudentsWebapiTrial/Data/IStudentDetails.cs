@@ -16,6 +16,8 @@ namespace StudentsWebapiTrial.Data
 
         void create(StudentDetails student);
 
+        StudentDetails AddStudent(StudentDetails student);
+
 
 
 

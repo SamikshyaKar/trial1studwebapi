@@ -15,6 +15,11 @@ namespace StudentsWebapiTrial.Data
             _Context = studentDetailsDBContext;
         }
 
+        public StudentDetails AddStudent(StudentDetails student)
+        {
+            throw new NotImplementedException();
+        }
+
         public void create(StudentDetails student)
         {
             if(student == null)
